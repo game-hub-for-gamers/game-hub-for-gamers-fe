@@ -1,27 +1,42 @@
 import React from 'react';
 
-import {Card, Pane, Text,Pill} from 'evergreen-ui'
+import {Card, Pane, Text,Pill,Popover,Button} from 'evergreen-ui'
 
 
 
-const Dashboard = ( )=> {
+const Dashboard = (prop)=> {
   return (
 <> 
 
   <Pane
     display="flex"
     flexDirection="row"
-
     >
       <Pane
       borderRight='default'
       display="flex"
       flexDirection="column"
-      width="200px">
-        <Text>
-          cod squad
-          <Pill display="inline-flex" margin={8}>1/6</Pill>
-        </Text>
+      width={300}>
+
+        <Popover
+          content={
+          <Pane
+            width={240}
+            height={240}
+            display="flex"
+            alignItems="center"
+            justifyContent="center"
+            flexDirection="column"
+          >
+            <Button>join</Button>
+          </Pane>    
+          }
+          position={prop.RIGHT}
+          >
+          <Button>cod squad
+            <Pill display="inline-flex" margin={8}>1/6</Pill></Button>
+          </Popover>
+
         <Text>
           cod squad
           <Pill display="inline-flex" margin={8}>1/4</Pill>
@@ -38,7 +53,8 @@ const Dashboard = ( )=> {
     
     <Pane
     display="flex"
-    flexWrap="wrap">
+    flexWrap="wrap"
+    justifyContent='center'>
       <Card
       margin={10}
       height={120}

@@ -1,5 +1,6 @@
 import {combineReducers} from 'redux'
+import ProfileR from './ProfileR'
 
 export const  rootReducer = combineReducers ({
-  random: null
+  Profile: ProfileR,
 })

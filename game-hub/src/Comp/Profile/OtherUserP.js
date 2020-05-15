@@ -25,12 +25,13 @@ const MyProfile = ( ) => {
           <Badge color="red" isSolid marginRight={8}>Switch</Badge>
           <Badge color="purple" isSolid marginRight={8}>Epic</Badge>
         </Card>
-
-
+        <Card  padding ={10} background="#7B8B9A" width={100} margin={20}>
+        <Icon icon="comment" />
+        </Card>
       </Pane>
     </Pane>
 
-    <Pane display='flex' 
+    <Pane display='flex'
     background="#D4EEE2" 
     margin={30}
     style={{'borderRadius': '10px'}}
@@ -39,9 +40,6 @@ const MyProfile = ( ) => {
     >
       <Card background="#47B881" padding={16} margin={10}>
         game name
-      </Card>
-      <Card background="#F9F9FB" padding={16} margin={10} alignItems='center'>
-        <Icon icon="add" paddingTop={2}/>
       </Card>
       
     </Pane>

@@ -14,7 +14,7 @@ const Navbar = ()=> {
 
     </Pane>
     <Tab><NavLink to='/myprofile'>profile</NavLink></Tab>
-    <Tab><NavLink to='/home'>dashboard</NavLink></Tab>
+    <Tab><NavLink to='/'>dashboard</NavLink></Tab>
     <Tab><NavLink to='/game'>game</NavLink></Tab>
     <Pane
     display='flex'
@@ -22,6 +22,7 @@ const Navbar = ()=> {
       <Button height={20} appearance="minimal" marginRight={16}>
         Logout
       </Button>
+      
       <IconButton appearance="minimal" icon="notifications" iconSize={18} />
       <Avatar isSolid color="green" name="Jeroen Ransijn" size={40} />
     </Pane>
