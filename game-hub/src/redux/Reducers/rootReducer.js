@@ -1,6 +1,6 @@
-import {combineReducers} from 'redux'
-import ProfileR from './ProfileR'
+// import {combineReducers} from 'redux'
+// import {dashR} from './dashboadGameR'
 
-export const  rootReducer = combineReducers ({
-  Profile: ProfileR,
-})
+// export const  rootReducer = combineReducers ({
+//   Alldash: dashR,
+// })

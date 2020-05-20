@@ -1,13 +1,13 @@
-import axios from 'axios'
+// import axios from 'axios'
 
 // GET
 // const PROFILESTARTG = 'PROFILESTARTG'
 // const PROFILESUCC   = 'PROFILESUCC'
 // const PROFILEFAIL   = 'PROFILEFAIL'
 // POST
-export const PROFILESTARTP = 'PROFILESTARTP'
-export const PROFILESUCCP  = 'PROFILESUCCP'
-export const PROFILEFAILP  = 'PROFILEFAILP'
+// export const PROFILESTARTP = 'PROFILESTARTP'
+// export const PROFILESUCCP  = 'PROFILESUCCP'
+// export const PROFILEFAILP  = 'PROFILEFAILP'
 
 // PUT
 // DELETE

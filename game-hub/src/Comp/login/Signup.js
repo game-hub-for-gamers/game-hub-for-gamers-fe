@@ -1,7 +1,7 @@
 import React from 'react';
-import {connect} from 'react-redux';
+// import {connect} from 'react-redux';
 import {TextInput,Button} from 'evergreen-ui'
-import {postProfile} from '../../redux/Actions/profileA'
+// import {postProfile} from '../../redux/Actions/profileA'
 import axios from 'axios'
 class Signup extends React.Component{
   constructor(props){
