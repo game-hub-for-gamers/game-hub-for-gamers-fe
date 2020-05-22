@@ -7,17 +7,18 @@ import './index.css';
 import App from './App';
 import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
-import {rootReducer} from './redux/Reducers/rootReducer'
+// import { rootReducer } from './redux/Reducers/rootReducer';
+import {dashR} from './redux/Reducers/dashboadGameR'
 
-const store = createStore(rootReducer,applyMiddleware(logger,thunk));
+const store = createStore(dashR,applyMiddleware(logger,thunk));
 ReactDOM.render(
-  <React.StrictMode>
+  // <React>
     <Provider store={store}>
       <Router>
         <App />
       </Router>
-    </Provider>
-  </React.StrictMode>,
+    </Provider>,
+  // </React>,
   document.getElementById('root')
 );
 
