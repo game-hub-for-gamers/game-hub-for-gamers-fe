@@ -8,6 +8,8 @@ import {
   Button,
   Icon,
 } from 'evergreen-ui'
+import {NavLink} from 'react-router-dom'
+
 // import {connect} from 'react-redux'
 // import {gameA} from '../../redux/Actions/dashboardGames.js'
 import axios from 'axios';
@@ -81,20 +83,23 @@ class Dashboard extends React.Component{
       flexWrap="wrap"
       justifyContent='center'>
 
-      {this.state.data.map(e=> 
-        <Card
-          margin={10}
-          height={120}
-          width={240}
-          display="flex"
-          alignItems="center"
-          justifyContent="center"
-          flexDirection="column"
-          border="default"
-          key={e.id}>
-            {e.game} 
-          <Pill display="inline-flex" margin={8} color="red" isSolid>200</Pill>
-        </Card>
+      {this.state.data.map(e=>
+        <NavLink to={`/game/${e.game}`}>
+
+          <Card
+            margin={10}
+            height={120}
+            width={240}
+            display="flex"
+            alignItems="center"
+            justifyContent="center"
+            flexDirection="column"
+            border="default"
+            key={e.id}>
+              {e.game} 
+              <Pill display="inline-flex" margin={8} color="red" isSolid>200</Pill>
+            </Card>
+          </NavLink>
       )}
 
         <Card
