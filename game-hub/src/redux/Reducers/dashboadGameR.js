@@ -9,7 +9,7 @@ const init = {
   err:'',
 }
 export const gameR =(state = init,action)=>{
-  console.log("reducer",action)
+  // console.log("reducer",action)
   switch(action.type){
     case STARTGAME:
       return {

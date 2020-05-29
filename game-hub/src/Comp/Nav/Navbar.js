@@ -22,7 +22,7 @@ const Navbar = ()=> {
     </Pane>
     <Tab><NavLink to='/myprofile'>profile</NavLink></Tab>
     <Tab><NavLink to='/'>dashboard</NavLink></Tab>
-    <Tab><NavLink to='/game'>game</NavLink></Tab>
+    <Tab><NavLink to='/game/1'>game</NavLink></Tab>
     <Pane
     display='flex'
     >

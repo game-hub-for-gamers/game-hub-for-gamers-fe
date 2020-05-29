@@ -10,7 +10,7 @@ import { Provider } from 'react-redux';
 import { rootReducer } from './redux/Reducers/rootReducer';
 // import {dashR} from './redux/Reducers/dashboadGameR'
 
-const store = createStore(rootReducer,applyMiddleware(logger,thunk));
+const store = createStore(rootReducer,applyMiddleware(thunk,logger));
 ReactDOM.render(
   // <React>
     <Provider store={store}>
