@@ -8,34 +8,40 @@ import {
   Button,
   Icon,
 } from 'evergreen-ui'
-// import {connect} from 'react-redux'
-// import {gameA} from '../../redux/Actions/dashboardGames.js'
-import axios from 'axios';
+import {NavLink} from 'react-router-dom'
+
+import {connect} from 'react-redux'
+import {gameA} from '../../redux/Actions/dashboardGames.js'
+// import axios from 'axios';
 // import { compose } from 'redux';
 // import Game from './Game';
 
 class Dashboard extends React.Component{
   constructor(props){
     super(props)
-    this.state ={data:[]}
+    this.state ={
+      data:[]
+    }
   }
-  getting = () => {
-    axios
-    .get('http://localhost:3333/game/g')
-    .then(res => {
-      this.setState({data:res.data})
-      console.log("state",this.state)
-    })
-    .catch(err => {
-      console.log(err.data)
-    })
-  }
+  // getting = () => {
+  //   axios
+  //   .get('http://localhost:3333/game/g')
+  //   .then(res => {
+  //     this.setState({data:res.data})
+  //     console.log("state",this.state)
+  //   })
+  //   .catch(err => {
+  //     console.log(err.data)
+  //   })
+  // }
   componentDidMount(){
-    this.getting()
+    
   }
   render(){
     return (
       <> 
+
+      {console.log(this.props.data)}
       <Pane
         display="flex"
         flexDirection="row"
@@ -81,20 +87,23 @@ class Dashboard extends React.Component{
       flexWrap="wrap"
       justifyContent='center'>
 
-      {this.state.data.map(e=> 
-        <Card
-          margin={10}
-          height={120}
-          width={240}
-          display="flex"
-          alignItems="center"
-          justifyContent="center"
-          flexDirection="column"
-          border="default"
-          key={e.id}>
-            {e.game} 
-          <Pill display="inline-flex" margin={8} color="red" isSolid>200</Pill>
-        </Card>
+      {this.state.data.map(e=>
+        <NavLink to={`/game/${e.game}`}>
+
+          <Card
+            margin={10}
+            height={120}
+            width={240}
+            display="flex"
+            alignItems="center"
+            justifyContent="center"
+            flexDirection="column"
+            border="default"
+            key={e.id}>
+              {e.game} 
+              <Pill display="inline-flex" margin={8} color="red" isSolid>200</Pill>
+            </Card>
+          </NavLink>
       )}
 
         <Card
@@ -116,11 +125,11 @@ class Dashboard extends React.Component{
   )
 }
 }
-export default Dashboard;
+// export default Dashboard;
 
-// const mapStateToProps = state => {
-  //   return {
-    //     data:state.Alldash
-    //   }
-    // }
-    // export default connect(mapStateToProps,{gameA})(Dashboard)
+const mapStateToProps = state => {
+  return {
+    data:state
+  }
+}
+export default connect(mapStateToProps,{gameA})(Dashboard)

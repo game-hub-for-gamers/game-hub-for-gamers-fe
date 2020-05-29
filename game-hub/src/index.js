@@ -7,10 +7,10 @@ import './index.css';
 import App from './App';
 import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
-// import { rootReducer } from './redux/Reducers/rootReducer';
-import {dashR} from './redux/Reducers/dashboadGameR'
+import { rootReducer } from './redux/Reducers/rootReducer';
+// import {dashR} from './redux/Reducers/dashboadGameR'
 
-const store = createStore(dashR,applyMiddleware(logger,thunk));
+const store = createStore(rootReducer,applyMiddleware(logger,thunk));
 ReactDOM.render(
   // <React>
     <Provider store={store}>

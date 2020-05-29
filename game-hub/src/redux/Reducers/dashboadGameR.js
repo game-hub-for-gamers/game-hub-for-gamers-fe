@@ -8,7 +8,8 @@ const init = {
   games:[],
   err:'',
 }
-export const dashR =(state = init,action)=>{
+export const gameR =(state = init,action)=>{
+  console.log("reducer",action)
   switch(action.type){
     case STARTGAME:
       return {
@@ -30,3 +31,4 @@ export const dashR =(state = init,action)=>{
       return state
   }
 }
+// export default gameR

@@ -5,6 +5,7 @@ import {Pane, Text, Heading} from 'evergreen-ui'
 const Game = props => {
   return (
 <>
+this will also have a feed section
     {console.log(props)}
     <Pane display='flex' 
     flexWrap="wrap"
@@ -32,7 +33,10 @@ const Game = props => {
             </Pane>
             
         </Pane>
+        
+        
     </Pane>
+    
 </>)
 }
 

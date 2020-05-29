@@ -4,7 +4,7 @@ import {Avatar,Pane,
   Card,Heading,
   Badge,Icon,
   Dialog,Button,
-  Component} from 'evergreen-ui'
+  } from 'evergreen-ui'
 import addingGames from './addingGames';
 const MyProfile = ( ) => {
   return(<Pane display='flex' flexDirection='column'>
