@@ -4,8 +4,8 @@ import {TextInput,Button} from 'evergreen-ui'
 // import {postProfile} from '../../redux/Actions/profileA'
 import axios from 'axios'
 class Signup extends React.Component{
-  constructor(props){
-    super(props)
+  constructor(){
+    super()
     this.state ={
       username:'',
       email:'',
