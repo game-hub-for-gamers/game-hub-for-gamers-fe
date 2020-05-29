@@ -1,6 +1,6 @@
-// import {combineReducers} from 'redux'
-// import {dashR} from './dashboadGameR'
+import {combineReducers} from 'redux'
+import {gameR} from './dashboadGameR'
 
-// export const  rootReducer = combineReducers ({
-//   Alldash: dashR,
-// })
+export const  rootReducer = combineReducers ({
+  Alldash: gameR,
+})

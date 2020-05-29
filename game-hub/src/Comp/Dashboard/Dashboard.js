@@ -10,34 +10,38 @@ import {
 } from 'evergreen-ui'
 import {NavLink} from 'react-router-dom'
 
-// import {connect} from 'react-redux'
-// import {gameA} from '../../redux/Actions/dashboardGames.js'
-import axios from 'axios';
+import {connect} from 'react-redux'
+import {gameA} from '../../redux/Actions/dashboardGames.js'
+// import axios from 'axios';
 // import { compose } from 'redux';
 // import Game from './Game';
 
 class Dashboard extends React.Component{
   constructor(props){
     super(props)
-    this.state ={data:[]}
+    this.state ={
+      data:[]
+    }
   }
-  getting = () => {
-    axios
-    .get('http://localhost:3333/game/g')
-    .then(res => {
-      this.setState({data:res.data})
-      console.log("state",this.state)
-    })
-    .catch(err => {
-      console.log(err.data)
-    })
-  }
+  // getting = () => {
+  //   axios
+  //   .get('http://localhost:3333/game/g')
+  //   .then(res => {
+  //     this.setState({data:res.data})
+  //     console.log("state",this.state)
+  //   })
+  //   .catch(err => {
+  //     console.log(err.data)
+  //   })
+  // }
   componentDidMount(){
-    this.getting()
+    
   }
   render(){
     return (
       <> 
+
+      {console.log(this.props.data)}
       <Pane
         display="flex"
         flexDirection="row"
@@ -121,11 +125,11 @@ class Dashboard extends React.Component{
   )
 }
 }
-export default Dashboard;
+// export default Dashboard;
 
-// const mapStateToProps = state => {
-  //   return {
-    //     data:state.Alldash
-    //   }
-    // }
-    // export default connect(mapStateToProps,{gameA})(Dashboard)
+const mapStateToProps = state => {
+  return {
+    data:state
+  }
+}
+export default connect(mapStateToProps,{gameA})(Dashboard)

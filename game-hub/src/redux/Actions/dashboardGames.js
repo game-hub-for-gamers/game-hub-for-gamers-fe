@@ -3,17 +3,13 @@ export const STARTGAME = 'STARTGAME'
 export const SUCCGAME  = 'SUCCGAME'
 export const FAILGAME  = 'FAILGAME'
 
-export const gameA = () => {
-  return dispatch => {
-    dispatch({type:STARTGAME})
-    axios
+export const gameA = () => dispatch => {
+  dispatch({type:STARTGAME})
+  axios
     .get('http://localhost:3333/game/g')
-    .then(res => {
-      dispatch({type:SUCCGAME,payload:res.data})
-    })
-    .catch(err => {
-      dispatch({type:FAILGAME,error:err.data})
-    })
-  }
+    .then(res => {console.log(res) 
+      dispatch({type:SUCCGAME,payload:res.data})} )
+    .catch(err => dispatch({type:FAILGAME,error:err.data}) )
+  
 }
 // export default gameA;
