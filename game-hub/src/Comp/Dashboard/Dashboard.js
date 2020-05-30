@@ -7,46 +7,35 @@ import {
   Popover,
   Button,
   Icon,
+
 } from 'evergreen-ui'
 import {NavLink} from 'react-router-dom'
 
 import {connect} from 'react-redux'
 import {gameA} from '../../redux/Actions/dashboardGames.js'
-// import axios from 'axios';
-// import { compose } from 'redux';
-// import Game from './Game';
+
 
 class Dashboard extends React.Component{
-  constructor(props){
+  constructor({props}){
     super(props)
     this.state ={
-      data:[]
     }
   }
-  // getting = () => {
-  //   axios
-  //   .get('http://localhost:3333/game/g')
-  //   .then(res => {
-  //     this.setState({data:res.data})
-  //     console.log("state",this.state)
-  //   })
-  //   .catch(err => {
-  //     console.log(err.data)
-  //   })
-  // }
+
   componentDidMount(){
-    
+    // add/mounts actions
+    this.props.gameA()
   }
+
   render(){
     return (
       <> 
-
       {console.log(this.props.data)}
       <Pane
         display="flex"
         flexDirection="row"
       >
-      <Pane
+      {/* <Pane
         borderRight='default'
         display="flex"
         flexDirection="column"
@@ -81,15 +70,14 @@ class Dashboard extends React.Component{
           fortnite dous
           <Pill display="inline-flex" margin={8}>1/2</Pill>
         </Text>
-      </Pane>
+      </Pane> */}
     <Pane
       display="flex"
       flexWrap="wrap"
       justifyContent='center'>
 
-      {this.state.data.map(e=>
-        <NavLink to={`/game/${e.game}`}>
-
+      {this.props.data.map(e=>
+        <NavLink to={`/game/${e.game}` } key={e.id}>
           <Card
             margin={10}
             height={120}
@@ -118,18 +106,20 @@ class Dashboard extends React.Component{
             Suggest A Game
           <Icon icon="add" paddingTop={2} size={20}/>
         </Card>
-
       </Pane>
+
+
+
     </Pane>
-      </>
+    </>
   )
 }
 }
-// export default Dashboard;
 
 const mapStateToProps = state => {
   return {
-    data:state
+    // state from reduc and object from the game reducer
+    data:state.Allgame.games
   }
 }
 export default connect(mapStateToProps,{gameA})(Dashboard)
