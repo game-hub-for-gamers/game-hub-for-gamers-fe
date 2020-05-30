@@ -1,38 +1,40 @@
-import React from 'react'
-import {NavLink} from 'react-router-dom'
+import React from "react";
+import { NavLink } from "react-router-dom";
 import {
   // Avatar,
   Pane,
   Text,
   // IconButton,
   // Button,
-  Tab} from 'evergreen-ui'
-const Navbar = ()=> {
-  return(<>
-  <Pane display='flex'
-    border='default'
-    justifyContent='space-between'
-  >
-    <Text>
-      game-hub
-    </Text> 
+  Tab,
+} from "evergreen-ui";
+const Navbar = () => {
+  return (
+    <>
+      <Pane display="flex" border="default" justifyContent="space-between">
+        <Text>game-hub</Text>
 
-    <Pane>
+        <Pane></Pane>
+        <Tab>
+          <NavLink to="/myprofile">profile</NavLink>
+        </Tab>
+        <Tab>
+          <NavLink to="/">dashboard</NavLink>
+        </Tab>
+        <Tab>
+          <NavLink to="/game">game</NavLink>
+        </Tab>
+        <Pane display="flex">
+          <Tab>
+            <NavLink to="/signup">Signup</NavLink>
+          </Tab>
 
-    </Pane>
-    <Tab><NavLink to='/myprofile'>profile</NavLink></Tab>
-    <Tab><NavLink to='/'>dashboard</NavLink></Tab>
-    <Tab><NavLink to='/game'>game</NavLink></Tab>
-    <Pane
-    display='flex'
-    >
-      <Tab><NavLink to='/signup'>Signup</NavLink></Tab>
-      
-      {/* <IconButton appearance="minimal" icon="notifications" iconSize={18} />
+          {/* <IconButton appearance="minimal" icon="notifications" iconSize={18} />
       <Avatar isSolid color="green" name="Jeroen Ransijn" size={40} /> */}
-    </Pane>
-  </Pane>
-  </>)
-}
+        </Pane>
+      </Pane>
+    </>
+  );
+};
 
 export default Navbar;
