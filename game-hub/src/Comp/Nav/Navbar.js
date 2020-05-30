@@ -29,8 +29,6 @@ const Navbar = () => {
             <NavLink to="/signup">Signup</NavLink>
           </Tab>
 
-          {/* <IconButton appearance="minimal" icon="notifications" iconSize={18} />
-      <Avatar isSolid color="green" name="Jeroen Ransijn" size={40} /> */}
         </Pane>
       </Pane>
     </>

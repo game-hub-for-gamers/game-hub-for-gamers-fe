@@ -12,6 +12,7 @@ import { rootReducer } from "./redux/Reducers/rootReducer";
 
 // Our Redux store
 const store = createStore(rootReducer, applyMiddleware(logger, thunk));
+
 ReactDOM.render(
   // <React>
   <Provider store={store}>
