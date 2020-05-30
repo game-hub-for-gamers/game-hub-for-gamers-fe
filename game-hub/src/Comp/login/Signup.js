@@ -12,7 +12,6 @@ class Signup extends React.Component{
       password:''
     }
   }
-    componentDidMount(){}
    
     handleChange = e => {
       e.preventDefault()
