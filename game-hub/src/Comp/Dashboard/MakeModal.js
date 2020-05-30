@@ -7,22 +7,26 @@ import {Pane, Dialog,
 import Component from '@reach/component-component'
 
 const MakeModal = () => {
+  // this.state = {}
   return(<>
-<Component initialState={{ isShown: false }}>
-  {({ state, setState }) => (
-    <Pane paddingY='4px'>
-      <Dialog
-        isShown={state.isShown}
-        onCloseComplete={() => setState({ isShown: false })}
-        preventBodyScrolling
-      >
-        Scroll-locked body
-      </Dialog>
+    <Component initialState={{ isShown: false }}>
+      {({ state, setState }) => (
+        <Pane paddingY='4px'>
+          <Dialog
+            isShown={state.isShown}
+            onCloseComplete={() => setState({ isShown: false })}
+            preventBodyScrolling
+          >
+            make a squad
+           <br/>
+           <br/>
+           squad mates needed dial that lets you request poeple that you need 
 
-      <Button onClick={() => setState({ isShown: true })}>Show Dialog</Button>
-    </Pane>
-  )}
-</Component>
+          </Dialog>
+          <Button onClick={() => setState({ isShown: true })}>Show Dialog</Button>
+        </Pane>
+      )}
+    </Component>
   </>)
 }
 

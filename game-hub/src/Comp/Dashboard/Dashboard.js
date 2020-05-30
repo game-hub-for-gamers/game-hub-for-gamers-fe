@@ -35,7 +35,7 @@ class Dashboard extends React.Component{
         display="flex"
         flexDirection="row"
       >
-      <Pane
+      {/* <Pane
         borderRight='default'
         display="flex"
         flexDirection="column"
@@ -70,14 +70,14 @@ class Dashboard extends React.Component{
           fortnite dous
           <Pill display="inline-flex" margin={8}>1/2</Pill>
         </Text>
-      </Pane>
+      </Pane> */}
     <Pane
       display="flex"
       flexWrap="wrap"
       justifyContent='center'>
 
       {this.props.data.map(e=>
-        <NavLink to={`/game/${e.game}`}>
+        <NavLink to={`/game/${e.game}` } key={e.id}>
           <Card
             margin={10}
             height={120}
