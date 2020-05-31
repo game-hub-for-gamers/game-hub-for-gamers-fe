@@ -1,12 +1,15 @@
 import React from "react";
 import { TextInput, Button } from "evergreen-ui";
-import { axiosWithAuth } from "../middleware/axiosWithAuth";
+import { loginAction } from "../../redux/Actions/loginAction.js";
+import { connect } from "react-redux";
+// import { axiosWithAuth } from "../middleware/axiosWithAuth";
 
 class Login extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: "",
+      // login: [],
+      usename: "",
       password: "",
     };
   }
@@ -15,14 +18,17 @@ class Login extends React.Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    axiosWithAuth()
-      .post("http://localhost:3333/api/user/login", this.state)
-      .then((res) => {
-        console.log("user login", res);
-        localStorage.setItem("token", res.data.token);
-        this.setState(res.data);
-        this.props.history.push("/"); // when user has a set token append into local storage they will be directed to the dashboard
-      });
+
+    loginAction(this.props.state);
+
+    // axiosWithAuth()
+    //   .post("http://localhost:3333/api/user/login", this.state)
+    //   .then((res) => {
+    //     console.log("user login", res);
+    //     localStorage.setItem("token", res.data.token);
+    //     this.setState(res.data);
+    //     this.props.history.push("/"); // when user has a set token append into local storage they will be directed to the dashboard
+    //   });
   };
 
   handleChange = (event) => {
@@ -41,7 +47,7 @@ class Login extends React.Component {
             onChange={this.handleChange}
           />
           <TextInput
-            type="pssword"
+            type="password"
             name="password"
             value={this.state.password} // referring to our object (state) through "this"
             onChange={this.handleChange}
@@ -59,4 +65,8 @@ class Login extends React.Component {
 
 // mapStateToProps funciotn
 
-export default Login;
+const mapStateToProps = (state) => {
+  return { login: state.login.login };
+};
+
+export default connect(mapStateToProps, { loginAction })(Login); // connecting our mapStateToProps function and our actions
