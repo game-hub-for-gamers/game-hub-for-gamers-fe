@@ -119,7 +119,7 @@ class Dashboard extends React.Component{
 const mapStateToProps = state => {
   return {
     // state from reduc and object from the game reducer
-    data:state.Allgame.games
+    data:state.games.games
   }
 }
 export default connect(mapStateToProps,{gameA})(Dashboard)
