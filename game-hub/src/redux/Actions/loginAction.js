@@ -11,7 +11,8 @@ export const loginAction = (state) => (dispatch) => {
   axiosWithAuth()
     .post("http://localhost:3333/api/user/login", state)
     .then((res) => {
-      console.log(res);
+      console.log(res,"then proccess");
+      localStorage.setItem("token", res.data.token)
       dispatch({
         type: FETCHED,
         payload: res.data, // assinging our data to the payload

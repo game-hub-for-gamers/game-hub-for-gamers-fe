@@ -9,7 +9,7 @@ class Login extends React.Component {
     super(props);
     this.state = {
       // login: [],
-      usename: "",
+      username: "",
       password: "",
     };
   }
@@ -18,17 +18,10 @@ class Login extends React.Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
+    console.log("clicked")
+    this.props.loginAction(this.state);
+    this.props.history.push("/")
 
-    loginAction(this.props.state);
-
-    // axiosWithAuth()
-    //   .post("http://localhost:3333/api/user/login", this.state)
-    //   .then((res) => {
-    //     console.log("user login", res);
-    //     localStorage.setItem("token", res.data.token);
-    //     this.setState(res.data);
-    //     this.props.history.push("/"); // when user has a set token append into local storage they will be directed to the dashboard
-    //   });
   };
 
   handleChange = (event) => {
@@ -38,6 +31,7 @@ class Login extends React.Component {
   render() {
     return (
       <>
+      {console.log(this.state)}
         <form onSubmit={this.handleSubmit}>
           <TextInput
             type="text"
@@ -54,7 +48,8 @@ class Login extends React.Component {
             placeholder="password"
           />
 
-          <Button height={30} appearance="primary" marginRight={16}>
+          <Button height={30} appearance="primary" marginRight={16}
+          onClick={this.handleSubmit}>
             Login
           </Button>
         </form>
@@ -64,7 +59,6 @@ class Login extends React.Component {
 }
 
 // mapStateToProps funciotn
-
 const mapStateToProps = (state) => {
   return { login: state.login.login };
 };
