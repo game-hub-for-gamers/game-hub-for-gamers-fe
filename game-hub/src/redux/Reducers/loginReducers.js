@@ -27,6 +27,6 @@ export const loginReducer = (state = initState, action) => {
         error: action.error,
       };
     default:
-      return state; // look up what this does
+      return state;
   }
 };
