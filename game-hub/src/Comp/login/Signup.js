@@ -1,11 +1,11 @@
 import React from 'react';
-// import {connect} from 'react-redux';
+import {connect} from 'react-redux';
 import {TextInput,Button} from 'evergreen-ui'
-// import {postProfile} from '../../redux/Actions/profileA'
-import axios from 'axios'
+import {RegisterAction} from '../../redux/Actions/RegisterAction'
+
 class Signup extends React.Component{
-  constructor(){
-    super()
+  constructor(props){
+    super(props)
     this.state ={
       username:'',
       email:'',
@@ -13,20 +13,19 @@ class Signup extends React.Component{
     }
   }
    
-    handleChange = e => {
-      e.preventDefault()
-      console.log(e.target.value,e.target.name)
-      this.setState({
-        ...this.state,
-        [e.target.name]:e.target.value
-      })
-    }
+  handleChange = e => {
+    e.preventDefault()
+    console.log(e.target.value,e.target.name)
+    this.setState({
+      ...this.state,
+      [e.target.name]:e.target.value
+    })
+  }
   Submit =(e) => {
     e.preventDefault()
-    axios
-    .post('http://localhost:3333/api/u/u',this.state)
-    .then(res => {})
-    .catch(err => {})
+    console.log(this.props.data)
+    this.props.RegisterAction(this.state)
+    // this.props.history.push('/')
   }
   render(){
     return (<form onSubmit={this.Submit}>
@@ -54,4 +53,11 @@ class Signup extends React.Component{
       </form>)
   }
 }
-export default Signup;
+
+const mapStateToProps =(state)=> {
+  return{
+    data:state
+  }
+}
+
+export default connect(mapStateToProps,{RegisterAction})(Signup);
