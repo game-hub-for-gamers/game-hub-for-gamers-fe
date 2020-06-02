@@ -15,13 +15,11 @@ class Login extends React.Component {
   }
 
   // axios with auth here
-
   handleSubmit = (event) => {
     event.preventDefault();
     console.log("clicked")
     this.props.loginAction(this.state);
     this.props.history.push("/")
-
   };
 
   handleChange = (event) => {
