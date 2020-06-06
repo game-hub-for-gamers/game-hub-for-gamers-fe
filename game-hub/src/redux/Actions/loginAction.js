@@ -16,6 +16,7 @@ export const loginAction = (state) => (dispatch) => {
       dispatch({
         type: FETCHED,
         payload: res.data, // assinging our data to the payload
+        status:res.status
       });
     })
     .catch((error) => {
