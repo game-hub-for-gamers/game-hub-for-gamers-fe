@@ -9,8 +9,8 @@ import MakeModal from './MakeModal'
 
 const Game = props => {
   return (
-<>
-this will also have a feed section
+  <>
+  this will also have a feed section
     {console.log(props)}
     <Pane display='flex' 
     flexWrap="wrap"
@@ -48,27 +48,27 @@ this will also have a feed section
             
             <MakeModal/>
             {/* <MakeModal initialState={{ isShown: false }}>
-  {({ state, setState }) => (
-    <Pane paddingY='40vh'>
-      <Dialog
-        isShown={state.isShown}
-        onCloseComplete={() => setState({ isShown: false })}
-        preventBodyScrolling
-      >
-        Scroll-locked body
-      </Dialog>
+              {({ state, setState }) => (
+                <Pane paddingY='40vh'>
+                  <Dialog
+                    isShown={state.isShown}
+                    onCloseComplete={() => setState({ isShown: false })}
+                    preventBodyScrolling
+                  >
+                    Scroll-locked body
+                  </Dialog>
 
-      <Button onClick={() => setState({ isShown: true })}>Show Dialog</Button>
-    </Pane>
-  )}
-</MakeModal> */}
+                  <Button onClick={() => setState({ isShown: true })}>Show Dialog</Button>
+                </Pane>
+              )}
+            </MakeModal> */}
 
         </Pane>
         
         
     </Pane>
     
-</>)
+  </>)
 }
 
 export default Game;

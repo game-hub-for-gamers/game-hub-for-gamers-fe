@@ -2,10 +2,10 @@ import React from 'react';
 import {
   Card,
   Pane, 
-  Text,
+  // Text,
   Pill,
-  Popover,
-  Button,
+  // Popover,
+  // Button,
   Icon,
 
 } from 'evergreen-ui'
@@ -30,7 +30,7 @@ class Dashboard extends React.Component{
   render(){
     return (
       <> 
-      {console.log(this.props.data)}
+      {console.log(localStorage)}
       <Pane
         display="flex"
         flexDirection="row"

@@ -13,7 +13,6 @@ class Login extends React.Component {
       password: "",
     };
   }
-
   // axios with auth here
   handleSubmit = (event) => {
     event.preventDefault();
@@ -29,7 +28,7 @@ class Login extends React.Component {
   render() {
     return (
       <>
-      {console.log(this.state)}
+
         <form onSubmit={this.handleSubmit}>
           <TextInput
             type="text"
@@ -55,7 +54,6 @@ class Login extends React.Component {
     );
   }
 }
-
 // mapStateToProps funciotn
 const mapStateToProps = (state) => {
   return { login: state.login.login };

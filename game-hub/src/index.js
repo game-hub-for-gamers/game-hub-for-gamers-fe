@@ -10,8 +10,9 @@ import { Provider } from "react-redux";
 import { rootReducer } from "./redux/Reducers/rootReducer";
 // import {dashR} from './redux/Reducers/dashboadGameR'
 
-// Our Redux store
-const store = createStore(rootReducer, applyMiddleware(logger, thunk));
+// Our Redux store                                we need to logger for debbuging
+//                                                    (logger,thunk) 
+const store = createStore(rootReducer, applyMiddleware(thunk));
 
 ReactDOM.render(
   // <React>
