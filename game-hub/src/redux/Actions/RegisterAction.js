@@ -10,3 +10,5 @@ export const RegisterAction = (input) => (dispatch) => {
     .then(res => dispatch({type: REGISTERDONE,payload: res.data}))
     .catch(error => dispatch({type: REGISTERFAIL,error: error,}))
 };
+
+
