@@ -61,6 +61,10 @@ class Signup extends React.Component {
       We need to be able to use it after the form validation */
       e.persist();
 
+
+
+      // !!!!! look at this for a example i go into a nested object to look int raw input 
+      // ant the error state to look for errors 
       this.setState(otherState=>({
         raw:{
         ...otherState.raw,
