@@ -26,7 +26,7 @@ class LoginModal extends React.Component {
     this.props.loginAction(this.state)
   };
   componentDidUpdate = () => {
-    console.log(this.props.status.status)
+    // console.log(this.props.status.status)
     if(this.props.status.status === 200){
       // fires when passcode is right
       window.location.reload(false);
@@ -45,7 +45,7 @@ class LoginModal extends React.Component {
   render(){
 
     return (<> 
-      {console.log(this.props.status)}
+      {/* {console.log(this.props.status)} */}
     <Component initialState={{ isShown: false }}>
       
       {({ state, setState }) => (
