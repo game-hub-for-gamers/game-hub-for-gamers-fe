@@ -31,9 +31,10 @@ class Signup extends React.Component {
     // this.props.history.push('/')
   };
 
-  // Yup Form Validation
+  //  *** Yup Form Validaiton ***
+
+  // Yup Form Validation Schema
   formSchema = Yup.object().shape({
-    // tell Yup what shape the data is supposed to take
     username: Yup.string()
       .username("Must be a vaild username")
       .required("Username is required"),
@@ -45,7 +46,20 @@ class Signup extends React.Component {
       .required("Password is required"),
   });
 
+  // hadnling our side effects when validation is true
+  componentDidMount() {
+    // passes our state into the entire schema. Makes sure data is valid before user submits
+    this.formSchema.isValid(RegisterAction).then((valid) => {
+      console.log("param from side effect", valid);
+      this.setButtonDisabled(!valid);
+      // state from our reducer
+    });
+  }
+
   render() {
+    // {
+    //   console.log("This is formState", RegisterAction);
+    // }
     return (
       <form onSubmit={this.Submit}>
         <TextInput
