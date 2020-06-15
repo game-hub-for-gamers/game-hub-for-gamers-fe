@@ -17,7 +17,7 @@ class Signup extends React.Component {
 
   handleChange = (e) => {
     e.preventDefault();
-    console.log(e.target.value, e.target.name);
+    // console.log(e.target.value, e.target.name);
     this.setState({
       ...this.state,
       [e.target.name]: e.target.value,
@@ -26,7 +26,7 @@ class Signup extends React.Component {
 
   Submit = (e) => {
     e.preventDefault();
-    console.log(this.props.data);
+    // console.log(this.props.data);
     this.props.RegisterAction(this.state);
     // this.props.history.push('/')
   };
@@ -34,11 +34,11 @@ class Signup extends React.Component {
   //  *** Yup Form Validaiton ***
 
   // Yup Form Validation Schema
-  formSchema = () =>
+  formSchema = 
     Yup.object().shape({
-      username: Yup.string()
-        .username("Must be a vaild username")
-        .required("Username is required"),
+      // username: Yup.string()
+      //   .username("Must be a vaild username")
+      //   .required("Username is required"),
       email: Yup.string()
         .email("Must be a vaild email")
         .required("Email is required"),
@@ -46,20 +46,24 @@ class Signup extends React.Component {
         .min(6, "Passwords must be at least 6 characters long.")
         .required("Password is required"),
     });
+  button = (banana) => {
+    console.log(banana)
+  }
 
   // hadnling our side effects when validation is true
   componentDidMount() {
     // passes our state into the entire schema. Makes sure data is valid before user submits
-    this.formSchema.isValid(RegisterAction).then((valid) => {
+    this.formSchema.isValid(this.state).then((valid) => {
+
       console.log("param from side effect", valid);
-      this.setButtonDisabled(!valid);
+      this.button(!valid);
       // state from our reducer
     });
   }
 
   render() {
     // {
-    //   console.log("This is formState", RegisterAction);
+      // console.log("This is formState" );
     // }
     return (
       <form onSubmit={this.Submit}>
