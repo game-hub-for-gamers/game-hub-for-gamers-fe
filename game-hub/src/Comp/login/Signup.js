@@ -34,17 +34,18 @@ class Signup extends React.Component {
   //  *** Yup Form Validaiton ***
 
   // Yup Form Validation Schema
-  formSchema = Yup.object().shape({
-    username: Yup.string()
-      .username("Must be a vaild username")
-      .required("Username is required"),
-    email: Yup.string()
-      .email("Must be a vaild email")
-      .required("Email is required"),
-    password: Yup.string()
-      .min(6, "Passwords must be at least 6 characters long.")
-      .required("Password is required"),
-  });
+  formSchema = () =>
+    Yup.object().shape({
+      username: Yup.string()
+        .username("Must be a vaild username")
+        .required("Username is required"),
+      email: Yup.string()
+        .email("Must be a vaild email")
+        .required("Email is required"),
+      password: Yup.string()
+        .min(6, "Passwords must be at least 6 characters long.")
+        .required("Password is required"),
+    });
 
   // hadnling our side effects when validation is true
   componentDidMount() {
