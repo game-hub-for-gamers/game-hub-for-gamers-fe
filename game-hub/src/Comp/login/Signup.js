@@ -46,7 +46,9 @@ class Signup extends React.Component {
     Yup.object().shape({
       username: Yup
         .string()
-        .required("Username is required"),
+        .required("Username is required")
+        .min(6, "Passwords must be at least 6 characters long.")
+        ,
       email: Yup.string()
         .email("Must be a vaild email")
         .required("Email is required"),
@@ -67,14 +69,10 @@ class Signup extends React.Component {
     
     inputChange = e => {
 
-
-      
       /* e.persist allows us to use the synthetic event in an async manner.
       We need to be able to use it after the form validation */
       e.preventDefault()
       e.persist();
-
-
 
       // !!!!! look at this for a example i go into a nested object to look int raw input 
       // ant the error state to look for errors 
@@ -84,7 +82,6 @@ class Signup extends React.Component {
         [e.target.name]: e.target.value
         }
       }));
-
 
       Yup
       .reach(this.formSchema, e.target.name)
@@ -105,8 +102,10 @@ class Signup extends React.Component {
       .catch(err => {
         console.log(err.errors,'this is error',err)
         this.setState({
-          ...this.errors,
+          errors:{...this.errors,
           [e.target.name]: err.errors[0]
+          }
+          // [e.target.name]: err.errors[0]
         });
       });
       
@@ -158,7 +157,8 @@ class Signup extends React.Component {
           placeholder="youremail@email.com"
           value={this.state.raw.email}
           onChange={this.inputChange}
-        />
+          />
+          <p>{this.state.errors.email}</p>
         <TextInput
           name="password"
           type="password" // type - form validation
@@ -184,3 +184,11 @@ const mapStateToProps = (state) => {
 };
 
 export default connect(mapStateToProps, { RegisterAction })(Signup);
+
+
+// this.setState({
+  // errors:{...this.errors,
+    // [e.target.name]: err.errors[0]
+    // }
+    // [e.target.name]: err.errors[0]
+  // });
