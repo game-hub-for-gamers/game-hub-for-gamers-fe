@@ -44,21 +44,34 @@ class Signup extends React.Component {
   // Yup Form Validation Schema
   formSchema = 
     Yup.object().shape({
-      // username: Yup.string()
-      //   .username("Must be a vaild username")
-      //   .required("Username is required"),
+      username: Yup
+        .string()
+        .required("Username is required"),
       email: Yup.string()
         .email("Must be a vaild email")
         .required("Email is required"),
-      password: Yup.string()
+      password: Yup
+        .string()
         .min(6, "Passwords must be at least 6 characters long.")
         .required("Password is required"),
     });
 
+    // validate=(e)=> {
+    //   // we validate this reach data with this validate data 
+    //   Yup
+    //   .reach(this.formSchema,e.target.name)
+    //   .validate(this.target.name)
+
+    // }
+
     
     inputChange = e => {
+
+
+      
       /* e.persist allows us to use the synthetic event in an async manner.
       We need to be able to use it after the form validation */
+      e.preventDefault()
       e.persist();
 
 
@@ -77,10 +90,10 @@ class Signup extends React.Component {
       .reach(this.formSchema, e.target.name)
       //we can then run validate using the value
       .validate(e.target.value)
-      // console.log(e.target.value)
+
       // if the validation is successful, we can clear the error message
       .then(valid => {
-        console.log(valid)
+        console.log(valid,'is valid')
         this.setState((other)=>({
           errors:{
             ...other.errors,
@@ -90,7 +103,7 @@ class Signup extends React.Component {
       /* if the validation is unsuccessful, we can set the error message to the message 
       returned from yup (that we created in our schema) */
       .catch(err => {
-        console.log(err)
+        console.log(err.errors,'this is error',err)
         this.setState({
           ...this.errors,
           [e.target.name]: err.errors[0]
@@ -105,32 +118,40 @@ class Signup extends React.Component {
     };
     
     buttonEnable = (pas) => {
-     console.log(pas)
+      pas.preventDefault()
+      console.log(pas)
+      this.formSchema.isValid(this.state,(valid) => {
+
+      console.log("param from side effect", valid);
+      // this.buttonEnable(!valid);
+    });
     }
     // hadnling our side effects when validation is true
     componentDidMount() {
       // passes our state into the entire schema. Makes sure data is valid before user submits
-      this.formSchema.isValid(this.state).then((valid) => {
-        // this.setState({val:valid})
-        console.log("param from side effect", valid);
-        this.buttonEnable(!valid);
-        // state from our reducer
+      this.formSchema.isValid(this.formSchema, function (valid) {
+        console.log(valid,'validation'); // => true
+        // return 
+        
       });
     }
     
     render() {
       // {
-      console.log("This is formState" ,this.state.val);
+      // console.log("This is formState" ,this.state.val);
     // }
     return (
-      <form onSubmit={this.Submit}>
-        {/* <TextInput
+      <form 
+      // onSubmit={this.Submit}
+      
+      >
+        <TextInput
           name="username"
           type="text" // type - form validation
           placeholder="username"
-          value={this.state.username}
+          value={this.state.raw.username}
           onChange={this.inputChange}
-        /> */}
+        />
         <TextInput
           name="email"
           type="text" // type - form validation
@@ -147,6 +168,7 @@ class Signup extends React.Component {
         />
         <Button height={30} appearance="primary" marginRight={16}
           disabled = {this.state.val}
+          onClick={this.buttonEnable}
         >
           Signup
         </Button>
