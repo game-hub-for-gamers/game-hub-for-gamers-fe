@@ -151,6 +151,7 @@ class Signup extends React.Component {
           value={this.state.raw.username}
           onChange={this.inputChange}
         />
+        <p>{this.state.errors.username}</p>
         <TextInput
           name="email"
           type="text" // type - form validation
@@ -166,6 +167,7 @@ class Signup extends React.Component {
           value={this.state.raw.password}
           onChange={this.inputChange}
         />
+        <p>{this.state.errors.password}</p>
         <Button height={30} appearance="primary" marginRight={16}
           disabled = {this.state.val}
           onClick={this.buttonEnable}
