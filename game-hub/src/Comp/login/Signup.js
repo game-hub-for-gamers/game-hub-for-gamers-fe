@@ -69,6 +69,12 @@ class Signup extends React.Component {
     
     inputChange = e => {
 
+      this.formSchema.isValid(this.state.raw).then(valid => {
+        console.log(valid,'validation'); // => true
+        // return 
+        this.setState({val:valid})
+      });
+
       /* e.persist allows us to use the synthetic event in an async manner.
       We need to be able to use it after the form validation */
       e.preventDefault()
@@ -128,11 +134,7 @@ class Signup extends React.Component {
     // hadnling our side effects when validation is true
     componentDidMount() {
       // passes our state into the entire schema. Makes sure data is valid before user submits
-      this.formSchema.isValid(this.formSchema, function (valid) {
-        console.log(valid,'validation'); // => true
-        // return 
-        
-      });
+      
     }
     
     render() {
