@@ -17,20 +17,9 @@ class Signup extends React.Component {
         email:null,
         password:null,
       },
-      val:null
+      val:false
     };
-
-    
   }
-
-  // handleChange = (e) => {
-  //   e.preventDefault();
-  //   // console.log(e.target.value, e.target.name);
-  //   this.setState({
-  //     ...this.state,
-  //     [e.target.name]: e.target.value,
-  //   });
-  // };
 
   Submit = (e) => {
     e.preventDefault();
@@ -40,7 +29,6 @@ class Signup extends React.Component {
   };
 
   //  *** Yup Form Validaiton ***
-
   // Yup Form Validation Schema
   formSchema = 
     Yup.object().shape({
@@ -58,13 +46,7 @@ class Signup extends React.Component {
         .required("Password is required"),
     });
 
-    // validate=(e)=> {
-    //   // we validate this reach data with this validate data 
-    //   Yup
-    //   .reach(this.formSchema,e.target.name)
-    //   .validate(this.target.name)
 
-    // }
 
     
     inputChange = e => {
@@ -122,20 +104,7 @@ class Signup extends React.Component {
       // });
     };
     
-    buttonEnable = (pas) => {
-      pas.preventDefault()
-      console.log(pas)
-      this.formSchema.isValid(this.state,(valid) => {
-
-      console.log("param from side effect", valid);
-      // this.buttonEnable(!valid);
-    });
-    }
-    // hadnling our side effects when validation is true
-    componentDidMount() {
-      // passes our state into the entire schema. Makes sure data is valid before user submits
-      
-    }
+    
     
     render() {
       // {
@@ -171,7 +140,7 @@ class Signup extends React.Component {
         />
         <p>{this.state.errors.password}</p>
         <Button height={30} appearance="primary" marginRight={16}
-          disabled = {this.state.val}
+          disabled = {(this.state.val === false)? true:false}
           onClick={this.buttonEnable}
         >
           Signup
@@ -188,7 +157,6 @@ const mapStateToProps = (state) => {
 };
 
 export default connect(mapStateToProps, { RegisterAction })(Signup);
-
 
 // this.setState({
   // errors:{...this.errors,
